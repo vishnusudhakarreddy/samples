@@ -1,0 +1,1 @@
+global.DB_NAME = 'subhash';
