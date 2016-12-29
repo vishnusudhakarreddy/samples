@@ -5,25 +5,39 @@ var express = require('express')
 var app = express();
 
 
-app.get('/employe/update',function(req,res){
-console.log('hiiii')
-mongoclint.connect(url,function(err,db) {
+app.get('/players/:name',function(req,res){
 
+ //li = parseInt(req.query.limit) || 11;
+ change = req.params.name ,
+ query = req.query.update;
+ mongoclint.connect(url,function(err,db) {
+
+    var collection = db.collection('cricket');
 	if(err){
 		console.log(err);
 
-    
 	}else{
-		var updateData = db.collection('employe');
-	updateData.find({name:'subhash',company:'zozz'}).toArray(function (err, data) {
+
+	/*collection.find({name:{ $regex: query, $options: 'i'}},{name:change}).limit(li).
+  toArray(function (err, data) {
   if (err) {
-   res.send(err);
+   console.log(err);
+  } else {
+  
+  console.log('find Successfully %d document(s).', data);
+    res.send(data)
+  }
+
+  })
+    */
+ collection.update({name:change},{name:query},function (err, data) {
+  if (err) {
+    console.log(err);
   } else {
     
     console.log('update Successfully %d document(s).', data);
     res.send(data)
   }
-
   })
 
   db.close();

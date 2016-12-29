@@ -7,7 +7,7 @@ var url = 'mongodb://localhost:27017/'+DB_NAME;
 exports.qfun1 = function(req,res) {
 var query = req.query.name || '',
  li = parseInt(req.query.limit) || 2;
-console.log(req.query.name)
+//console.log(req.query.name)
 	 mongolcient.connect(url,function(err,db){
      if (err) {
 	console.log(err);
