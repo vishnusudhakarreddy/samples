@@ -39,5 +39,5 @@ mongoclinent.connect(url,function (err,db) {
 
 
 })
-app.listen(3001);
+app.listen(3000);
 console.log('success subhash reddy')

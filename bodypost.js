@@ -18,7 +18,7 @@ var address = req.body.address;
 var data =req.body;
 mongoclinent.connect(url,function (err,db) {
   if (err) {
-    console.log('err');
+    console.log('err', err);
   }else{
         
     console.log('displayed to collections',data);
@@ -36,12 +36,9 @@ mongoclinent.connect(url,function (err,db) {
 
     
   }
-   db.close();
-
+   
+db.close();
 })
-
-
-
 
 })
 app.listen(3000);
