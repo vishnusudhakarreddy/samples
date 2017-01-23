@@ -21,7 +21,7 @@ collection.remove({id:req.body.id},function(err,data){
 if(err){
 res.send(err)
 }else {
-	console.log('deleted')
+	//console.log('deleted')
 	res.send(data)
 }
 })
@@ -95,7 +95,7 @@ app.put('/zozz',function(req,res){
 
 app.get('/zozz',function(req,res){
    var query=req.query.name|| '';
-
+  
 mongoclient.connect(url,function (err,db) {
   if (err) {
     console.log('err');
